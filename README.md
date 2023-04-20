@@ -30,7 +30,7 @@ Please cite our paper if you find our work useful for your research:
 - transformers==4.5.1
 - pandas == 1.2.5
 - wenetruntime
-- paddlespeech == 1.4.1
+- paddlespeech == 1.4.1 (refer to https://github.com/PaddlePaddle/PaddleSpeech/blob/develop/docs/source/install.md)
 
 
 
