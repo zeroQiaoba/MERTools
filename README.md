@@ -1,8 +1,10 @@
 # MER 2023: Multi-label Learning, Modality Robustness, and Semi-Supervised Learning
 
 Correspondence to: 
-  - Zheng Lian (lianzheng2016@ia.ac.cn)
-  - Licai Sun (sunlicai2019@ia.ac.cn)
+  - Contact email: merchallenge.contact@gmail.com
+  - Zheng Lian: lianzheng2016@ia.ac.cn
+  - Haiyang Sun: sunhaiyang2021@ia.ac.cn
+  - Licai Sun: sunlicai2019@ia.ac.cn
 
 ## Paper
 [**MER 2023: Multi-label Learning, Modality Robustness, and Semi-Supervised Learning**](https://arxiv.org/abs/2304.08981)<br>
@@ -18,6 +20,9 @@ Please cite our paper if you find our work useful for your research:
   year={2023}
 }
 ```
+Baseline paper: https://arxiv.org/abs/2304.08981
+
+Baseline code: https://github.com/zeroQiaoba/MER2023-Baseline
 
 ## Usage
 
