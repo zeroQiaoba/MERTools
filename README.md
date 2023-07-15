@@ -24,6 +24,8 @@ Baseline paper: https://arxiv.org/abs/2304.08981
 
 Baseline code: https://github.com/zeroQiaoba/MER2023-Baseline
 
+To download the dataset, please fill out an [EULA](https://drive.google.com/file/d/1LOW2e6ZuyUjurVF0SNPisqSh4VzEl5lN) and send it to our official email address merchallenge.contact@gmail.com. It requires participants to use this dataset only for academic research and not to edit or upload samples to the Internet.
+
 ## Usage
 
 ### Prerequisites
