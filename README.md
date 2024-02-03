@@ -5,12 +5,17 @@ Correspondence to:
   - Zheng Lian: lianzheng2016@ia.ac.cn
   - Licai Sun: sunlicai2019@ia.ac.cn
 
+## Environment
+```shell
+conda env create -f environment.yml
+```
+- If raise errors about "OSError: libtorch_cuda_cpp.so: cannot open shared object file: No such file or directory", please run "pip install -U torch torchaudio --no-cache-dir"
+- If your Cuda version is low (such as 10.2), please check the install instructions for pytorch-relate packages in "https://pytorch.org/get-started/previous-versions"
 
 
 ## MER2023 Dataset
 
 To download the dataset, please fill out an [EULA](https://drive.google.com/file/d/1LOW2e6ZuyUjurVF0SNPisqSh4VzEl5lN) and send it to our official email address merchallenge.contact@gmail.com or lianzheng2016@ia.ac.cn. It requires participants to use this dataset only for academic research and not to edit or upload samples to the Internet.
-
 
 
 ## MER2023 Baseline
