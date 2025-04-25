@@ -1,0 +1,300 @@
+Current learning rate: 0.01
+Current best accuracy: 39.700130462646484
+49.91428756713867
+Current learning rate: 0.01
+Current best accuracy: 39.96088409423828
+50.89032769203186
+Current learning rate: 0.01
+Current best accuracy: 39.96088409423828
+47.90997314453125
+Current learning rate: 0.01
+Current best accuracy: 42.89439392089844
+48.27400779724121
+Current learning rate: 0.01
+Current best accuracy: 42.89439392089844
+45.48580551147461
+Current learning rate: 0.01
+Current best accuracy: 45.14341354370117
+50.26422142982483
+Current learning rate: 0.01
+Current best accuracy: 46.57757568359375
+49.39684557914734
+Current learning rate: 0.01
+Current best accuracy: 47.164276123046875
+52.870774269104004
+Current learning rate: 0.01
+Current best accuracy: 48.305084228515625
+49.49987554550171
+Current learning rate: 0.01
+Current best accuracy: 51.075618743896484
+51.77178978919983
+Current learning rate: 0.01
+Current best accuracy: 51.075618743896484
+48.5040385723114
+Current learning rate: 0.01
+Current best accuracy: 56.51890563964844
+51.46335530281067
+Current learning rate: 0.01
+Current best accuracy: 56.942630767822266
+50.02374887466431
+Current learning rate: 0.01
+Current best accuracy: 58.539764404296875
+53.09300494194031
+Current learning rate: 0.01
+Current best accuracy: 60.03911209106445
+53.783174991607666
+Current learning rate: 0.001
+Current best accuracy: 64.56974792480469
+49.08412265777588
+Current learning rate: 0.001
+Current best accuracy: 65.35202026367188
+50.028961181640625
+Current learning rate: 0.001
+Current best accuracy: 65.5149917602539
+47.93529438972473
+Current learning rate: 0.001
+Current best accuracy: 65.71055603027344
+50.90711450576782
+Current learning rate: 0.001
+Current best accuracy: 65.77574920654297
+51.54930377006531
+Current learning rate: 0.001
+Current best accuracy: 66.3950424194336
+48.72448229789734
+Current learning rate: 0.001
+Current best accuracy: 66.75358581542969
+48.16673541069031
+Current learning rate: 0.001
+Current best accuracy: 66.75358581542969
+45.37193536758423
+Current learning rate: 0.001
+Current best accuracy: 66.75358581542969
+47.376206398010254
+Current learning rate: 0.001
+Current best accuracy: 66.75358581542969
+49.05157279968262
+Current learning rate: 0.001
+Current best accuracy: 66.75358581542969
+47.99272108078003
+Current learning rate: 0.001
+Current best accuracy: 67.37287902832031
+49.417189836502075
+Current learning rate: 0.001
+Current best accuracy: 67.37287902832031
+48.04614853858948
+Current learning rate: 0.001
+Current best accuracy: 67.37287902832031
+48.84784436225891
+Current learning rate: 0.001
+Current best accuracy: 67.37287902832031
+48.36276698112488
+Current learning rate: 0.0001
+Current best accuracy: 67.37287902832031
+47.346187591552734
+Current learning rate: 0.0001
+Current best accuracy: 67.37287902832031
+47.96346855163574
+Current learning rate: 0.0001
+Current best accuracy: 67.43807220458984
+50.313658237457275
+Current learning rate: 0.0001
+Current best accuracy: 67.47066497802734
+49.692925691604614
+Current learning rate: 0.0001
+Current best accuracy: 67.47066497802734
+47.292707204818726
+Current learning rate: 0.0001
+Current best accuracy: 67.63363647460938
+51.322465896606445
+Current learning rate: 0.0001
+Current best accuracy: 67.63363647460938
+50.04703688621521
+Current learning rate: 0.0001
+Current best accuracy: 67.63363647460938
+47.14695191383362
+Current learning rate: 0.0001
+Current best accuracy: 67.63363647460938
+48.711283922195435
+Current learning rate: 0.0001
+Current best accuracy: 67.63363647460938
+47.94879412651062
+Current learning rate: 0.0001
+Current best accuracy: 67.92698669433594
+49.25042772293091
+Current learning rate: 0.0001
+Current best accuracy: 67.92698669433594
+47.15918755531311
+Current learning rate: 0.0001
+Current best accuracy: 67.92698669433594
+49.67987537384033
+Current learning rate: 0.0001
+Current best accuracy: 67.92698669433594
+47.550891399383545
+Current learning rate: 0.0001
+Current best accuracy: 67.92698669433594
+47.50164604187012
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+48.42173624038696
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+48.91460609436035
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+48.232935190200806
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+47.14664006233215
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+45.961103439331055
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+48.460466146469116
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+47.77430868148804
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+47.21962928771973
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+47.859131813049316
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+46.11643075942993
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+47.78718066215515
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+48.327247858047485
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+45.75652527809143
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+48.35492205619812
+Current learning rate: 1e-05
+Current best accuracy: 67.92698669433594
+46.921698808670044
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+45.72307276725769
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+48.29491329193115
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+49.127808570861816
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+46.777756690979004
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+46.72782778739929
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+47.24326205253601
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+49.947662115097046
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+45.70140314102173
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+45.746349811553955
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+47.31157636642456
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+48.81526446342468
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+46.253960609436035
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+48.779391050338745
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+49.7070209980011
+Current learning rate: 1.0000000000000002e-06
+Current best accuracy: 67.92698669433594
+49.21618413925171
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+50.86844086647034
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+49.70668840408325
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+48.933642864227295
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+47.914856910705566
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+51.17495560646057
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+49.275529623031616
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+48.14959359169006
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+48.737030267715454
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+47.10572528839111
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+47.31725597381592
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+47.99852633476257
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+48.81624245643616
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+47.445074796676636
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+46.94462466239929
+Current learning rate: 1.0000000000000002e-07
+Current best accuracy: 67.92698669433594
+48.58089351654053
+Current learning rate: 1.0000000000000004e-08
+Current best accuracy: 67.92698669433594
+47.860252380371094
+Current learning rate: 1.0000000000000004e-08
+Current best accuracy: 67.92698669433594
+47.06158709526062
+Current learning rate: 1.0000000000000004e-08
+Current best accuracy: 67.92698669433594
+46.4701087474823
+Current learning rate: 1.0000000000000004e-08
+Current best accuracy: 67.92698669433594
+47.75997591018677
+Current learning rate: 1.0000000000000004e-08
+Current best accuracy: 67.92698669433594
+46.212281703948975
+Current learning rate: 1.0000000000000004e-08
+Current best accuracy: 67.92698669433594
+48.81006097793579
+Current learning rate: 1.0000000000000004e-08
+Current best accuracy: 67.92698669433594
+48.690351247787476
+Current learning rate: 1.0000000000000004e-08
+Current best accuracy: 67.92698669433594
+49.697937965393066
+Current learning rate: 1.0000000000000004e-08
+Current best accuracy: 67.92698669433594
+47.54074287414551
+Current learning rate: 1.0000000000000004e-08
+Current best accuracy: 67.92698669433594
+48.244555711746216

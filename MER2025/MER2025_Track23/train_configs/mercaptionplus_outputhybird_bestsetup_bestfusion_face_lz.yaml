@@ -1,0 +1,125 @@
+## w Pre-fusion + Attention
+
+model:
+  arch: affectgpt
+  model_type: pretrain_vicuna
+
+  # Audio Q-Former and Video Q-Former
+  frozen_video_proj: False
+  frozen_video_Qformer: False
+  frozen_audio_Qformer: False
+  frozen_audio_proj: False
+  frozen_multi_Qformer: False
+  frozen_multi_llama_proj: False
+  frozen_llm: False
+
+  multi_fusion_type: attention # attention/qformer
+  video_fusion_type: attention # qformer(default)/mean/attention
+  audio_fusion_type: attention # qformer(default)/mean/attention
+  image_fusion_type: mean       # token(default)/mean
+
+  # AffectGPT
+  ckpt:   ""
+  ckpt_2: ""
+
+  # Other pre-trained models
+  llama_model: "Qwen25"            # Vicuna
+  acoustic_encoder: "HUBERT_LARGE" # IMAGEBIND
+  visual_encoder: "CLIP_VIT_LARGE" # EVA_CLIP_G
+
+  num_audio_query_token: 1
+  num_video_query_token: 1
+  num_multi_query_token: 1
+  num_image_query_token: 1
+
+  max_length: 1024
+
+  vis_processor:
+    train:
+      name: "alpro_video_train"
+      n_frms: 8
+      image_size: 224
+  text_processor:
+    train:
+      name: "blip_caption"
+  img_processor:
+    train:
+      name: "blip2_image_train"
+      image_size: 224
+  
+
+datasets:
+
+  mercaptionplus:
+    data_type: video
+    face_or_frame: 'multiface_audio_face_text' # 默认是读取 frame or face
+    label_type: 'hybird' # 模型是预测 description 还是 label 呢？
+
+
+# 1. 采用大batch + 三个 80g gpu
+run:
+
+  task: video_text_pretrain
+
+  # optimizer
+  lr_sched: "linear_warmup_cosine_lr"
+  init_lr: 1e-5 # 3e-5 loss: nan -> 降低 loss 到 2e-5 nan -> 降低 loss 到 1e-5
+  min_lr: 1e-5
+  warmup_lr: 1e-6
+  weight_decay: 0.05
+
+  max_epoch: 60 # 20 -> 100 大概可以让每个样本跑2-3次的样子，因为 EMER-Coarse 大约有 11.5k samples => 大约 26h 就可以跑完，速度还ok的
+  iters_per_epoch: 5000 # 1000
+  warmup_steps: 5000    # 1000
+
+  batch_size_train: 3 # 3 # 这是单一gpu的batch_size；实际batch_size = gpu_num * batch_size_train
+  batch_size_eval:  3 # 3 # 这是单一gpu的batch_size；实际batch_size = gpu_num * batch_size_train
+
+  seed: 42
+  num_workers: 4
+
+  amp: True # auto mixed precision, multiplication (fp16), addition (fp32)
+  resume_ckpt_path: null # continue training from resume_ckpt_path
+
+  evaluate: False 
+  train_splits: ["train"]
+
+  device: "cuda" 
+  world_size: 1
+  dist_url: "env://"
+  distributed: True
+
+
+# 这部分放的是 inference 相关的
+inference:
+
+  task: video_text_pretrain
+
+  vis_processor:
+    train:
+      name: "alpro_video_eval"
+      n_frms: 8
+      image_size: 224
+  text_processor:
+    train:
+      name: "blip_caption"
+  img_processor:
+    train:
+      name: "blip2_image_eval"
+      image_size: 224
+
+  ######################################################
+  # NOTE: 为了避免出错，设置为与 emercoarse 或者 mer2023 一致就可以
+  face_or_frame: 'xxx'
+  ######################################################
+
+  base_root: 'output/results'
+  
+  # inference ckpt
+  ckpt_root: xxx
+  ckpt_name: xxx
+  test_epoch: xxx
+  test_epochs: xxx-xxx
+  skip_epoch: 1 # only process on epoch%10=0 的部分 ckpt_3
+  gpu: 0
+
