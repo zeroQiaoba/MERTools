@@ -5,7 +5,7 @@ Baselines for MER2025 Track1~Track3</a></h3>
 <h5 align="center">
 
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-yellow)](MER2025_Track1/LICENSE) 
+[![License](https://img.shields.io/badge/License-Apache%202.0-yellow)](LICENSE) 
 
 </h5>
 
