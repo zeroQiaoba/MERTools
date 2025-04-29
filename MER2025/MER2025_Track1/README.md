@@ -1,4 +1,4 @@
-<h3 align="center"><a href="https://arxiv.org/abs/2401.03429" style="color:#9C276A">
+<h3 align="center"><a href="https://arxiv.org/abs/2504.19423" style="color:#9C276A">
 Baselines for MER2025 Track1</a></h3>
 <h5 align="center"> If our project helps you, please give us a star ⭐ on GitHub to support us. 🙏🙏 </h2>
 
