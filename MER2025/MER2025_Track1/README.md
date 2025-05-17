@@ -171,6 +171,14 @@ python evaluation.py score_calculation "../dataset/mer2025-dataset/track1_test_d
 
 If you find this project useful for your research and applications, please cite using this BibTeX:
 ```bibtex
+## MER2025
+@article{lian2025mer,
+  title={MER 2025: When Affective Computing Meets Large Language Models},
+  author={Lian, Zheng and Liu, Rui and Xu, Kele and Liu, Bin and Liu, Xuefei and Zhang, Yazhou and Liu, Xin and Li, Yong and Cheng, Zebang and Zuo, Haolin and others},
+  journal={arXiv preprint arXiv:2504.19423},
+  year={2025}
+}
+
 ## MERBench
 @article{lian2024merbench,
   title={Merbench: A unified evaluation benchmark for multimodal emotion recognition},
