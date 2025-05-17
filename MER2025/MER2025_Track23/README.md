@@ -257,11 +257,19 @@ Please follow the **-openset.npz* format. The Codalab evaluation system only acc
 
 If you find AffectGPT useful for your research and applications, please cite using this BibTeX:
 ```bibtex
+# MER2025
+@article{lian2025mer,
+  title={MER 2025: When Affective Computing Meets Large Language Models},
+  author={Lian, Zheng and Liu, Rui and Xu, Kele and Liu, Bin and Liu, Xuefei and Zhang, Yazhou and Liu, Xin and Li, Yong and Cheng, Zebang and Zuo, Haolin and others},
+  journal={arXiv preprint arXiv:2504.19423},
+  year={2025}
+}
+
 # MER-Caption dataset, MER-Caption+ dataset, AffectGPT Framework
 @article{lian2025affectgpt,
   title={AffectGPT: A New Dataset, Model, and Benchmark for Emotion Understanding with Multimodal Large Language Models},
   author={Lian, Zheng and Chen, Haoyu and Chen, Lan and Sun, Haiyang and Sun, Licai and Ren, Yong and Cheng, Zebang and Liu, Bin and Liu, Rui and Peng, Xiaojiang and others},
-  journal={arXiv preprint arXiv:2501.16566},
+  journal={ICML},
   year={2025}
 }
 
@@ -269,7 +277,7 @@ If you find AffectGPT useful for your research and applications, please cite usi
 @article{lian2024open,
   title={Open-vocabulary Multimodal Emotion Recognition: Dataset, Metric, and Benchmark},
   author={Lian, Zheng and Sun, Haiyang and Sun, Licai and Chen, Lan and Chen, Haoyu and Gu, Hao and Wen, Zhuofan and Chen, Shun and Zhang, Siyuan and Yao, Hailiang and others},
-  journal={arXiv preprint arXiv:2410.01495},
+  journal={ICML},
   year={2024}
 }
 
