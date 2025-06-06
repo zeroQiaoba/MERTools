@@ -18,6 +18,7 @@ class MER2025:
         self.batch_size = args.batch_size
         self.num_workers = args.num_workers
         self.label_path = config.PATH_TO_LABEL[args.dataset]
+        self.all_data_name_path = config.PATH_TO_LABEL[args.dataset + "all"]
 
         self.dataset = args.dataset
         assert self.dataset in ['MER2025']
@@ -83,15 +84,25 @@ class MER2025:
     def read_names_labels(self, label_path, data_type, debug=False):
         names, labels = [], []
         assert data_type in ['train', 'test1']
-        if data_type == 'train': corpus = np.load(label_path, allow_pickle=True)['train_corpus'].tolist()
-        if data_type == 'test1': corpus = np.load(label_path, allow_pickle=True)['test1_corpus'].tolist()
-        for name in corpus:
-            names.append(name)
-            labels.append(corpus[name])
-        # post process for labels
-        for ii, label in enumerate(labels):
-            emo = emo2idx_mer[label['emo']]
-            labels[ii] = {'emo': emo, 'val': -10}
+        df_all = pd.read_csv(self.all_data_name_path)
+        df = pd.read_csv(label_path) # did not release test for now, so use a complementary set of all data and train data to filter.
+        if data_type == "train":
+            corpus = df.to_dict(orient='records')
+            for data in corpus:
+                name, emo, val = data['name'], data['discrete'], data['valence']
+                names.append(name)
+                emo = emo2idx_mer[emo]
+                labels.append({"emo": emo, "val": -10})
+        if data_type == "test1":
+            # test_df = df_all[~df_all['name'].isin(df['name'])] # seems only 20000 samples, so these are all test set.
+            # corpus = test_df.to_dict(orient='records')
+            df_all.to_dict(orient='records')
+            for data in corpus:
+                # test1 does not have emo label, so use neutral
+                names.append(data['name'])
+                emo = emo2idx_mer["neutral"]
+                labels.append({"emo": emo, "val": -10})
+
         # for debug
         if debug: 
             names = names[:100]
