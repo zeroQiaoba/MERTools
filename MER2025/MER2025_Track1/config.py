@@ -28,7 +28,8 @@ PATH_TO_TRANSCRIPTIONS = {
 }
 PATH_TO_LABEL = {
     'MER2025Raw':  os.path.join(DATA_DIR['MER2025Raw'], 'xxx'),
-    'MER2025':     os.path.join(DATA_DIR['MER2025'],    'track1_label_6way.npz'),
+    'MER2025':     os.path.join(DATA_DIR['MER2025'],    'track1_train_disdim.csv'),
+    'MER2025all':  os.path.join(DATA_DIR['MER2025'],    'track_all_candidates.csv'),
 }
 PATH_TO_FEATURES = {
     'MER2025Raw':  os.path.join(DATA_DIR['MER2025Raw'], 'xxx'),
