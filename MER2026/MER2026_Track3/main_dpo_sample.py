@@ -25,7 +25,8 @@ def normal_samplecalling(model_cls, output_type='xxx', round=1):
         name = row['name']
         a1 = row['a1'].replace('\n', ' ').replace('\t', ' ').strip()
         a2 = row['a2'].replace('\n', ' ').replace('\t', ' ').strip()
-        preference = row['preference']
+        # preference = row['preference']
+        preference = 'tie'
         gt_labels.append(preference)
         ###########################
         ## debug
@@ -95,7 +96,8 @@ def cot_step2_description_samplecalling(model_cls, output_type='xxx', round=1):
         name = row['name']
         a1 = row['a1'].replace('\n', ' ').replace('\t', ' ').strip()
         a2 = row['a2'].replace('\n', ' ').replace('\t', ' ').strip()
-        preference = row['preference']
+        # preference = row['preference']
+        preference = 'tie'
         description = name2description[name].replace('\n', ' ').replace('\t', ' ').strip()
         gt_labels.append(preference)
         
@@ -133,7 +135,8 @@ def cot_step3_description_batchcalling(args, llm_cls, output_type='xxx', round=1
         name = row['name']
         a1 = row['a1'].replace('\n', ' ').replace('\t', ' ').strip()
         a2 = row['a2'].replace('\n', ' ').replace('\t', ' ').strip()
-        preference = row['preference']
+        # preference = row['preference']
+        preference = 'tie'
         description = name2description[name].replace('\n', ' ').replace('\t', ' ').strip()
         gt_labels.append(preference)
         
@@ -214,7 +217,8 @@ def cot_step5_description_batchcalling(args, llm_cls, output_type='xxx', round=1
     df = pd.read_csv(config.PATH_TO_LABEL[output_type])
     for ii, (_, row) in enumerate(df.iterrows()):
         name = row['name']
-        preference = row['preference']
+        # preference = row['preference']
+        preference = 'tie'
         reason = name2reason[name].replace('\n', ' ').replace('\t', ' ').strip()
         gt_labels.append(preference)
         
