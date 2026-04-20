@@ -29,7 +29,8 @@ def normal_batchcalling(model_cls, output_type='xxx', round=1):
         name = row['name']
         a1 = row['a1'].replace('\n', ' ').replace('\t', ' ').strip()
         a2 = row['a2'].replace('\n', ' ').replace('\t', ' ').strip()
-        preference = row['preference']
+        # preference = row['preference']
+        preference = 'tie'
         gt_labels.append(preference)
         ###########################
         if args.debug and ii == 2: break # debug
@@ -100,7 +101,8 @@ def cot_step2_description_batchcalling(model_cls, output_type='xxx', round=1):
         name = row['name']
         a1 = row['a1'].replace('\n', ' ').replace('\t', ' ').strip()
         a2 = row['a2'].replace('\n', ' ').replace('\t', ' ').strip()
-        preference = row['preference']
+        # preference = row['preference']
+        preference = 'tie'
         description = name2description[name].replace('\n', ' ').replace('\t', ' ').strip()
         gt_labels.append(preference)
         
