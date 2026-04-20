@@ -17,7 +17,7 @@ PATH_TO_TRANSCRIPTIONS = {
     'MER2026Track3': os.path.join(DATA_DIR['MER2026'], 'subtitle_chieng.csv'),
 }
 PATH_TO_LABEL = {
-    'MER2026Track3': os.path.join(DATA_DIR['MER2026'], 'track3_test.csv'),
+    'MER2026Track3': os.path.join(DATA_DIR['MER2026'], 'track3_candidate.csv'),
 }
 
 ## model -> model path
