@@ -49,7 +49,7 @@ def normalize_dataset_format(data_root, save_root, with_gt=True):
         test_label  = os.path.join(data_root, 'track1_test.csv')
         test_names,  test_emos  = read_test_label_csv(test_label, with_gt)
     else: # without gt
-        test_label  = os.path.join(data_root, 'track_all_candidates.csv')
+        test_label  = os.path.join(data_root, 'track1_track2_candidate.csv')
         test_names,  test_emos  = read_test_label_csv(test_label, with_gt)
         
     whole_corpus = {}
@@ -107,5 +107,5 @@ def normalize_dataset_format(data_root, save_root, with_gt=True):
 if __name__ == '__main__':
     data_root = config.DATA_DIR['MER2026Raw']
     save_root = config.DATA_DIR['MER2026']
-    normalize_dataset_format(data_root, save_root, with_gt=True)  # w/  gt files
-    # normalize_dataset_format(data_root, save_root, with_gt=False) # w/o gt files 
+    # normalize_dataset_format(data_root, save_root, with_gt=True)  # w/  gt files
+    normalize_dataset_format(data_root, save_root, with_gt=False) # w/o gt files 
