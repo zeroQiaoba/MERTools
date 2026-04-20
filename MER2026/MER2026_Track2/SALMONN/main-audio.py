@@ -1,0 +1,104 @@
+import os
+import glob
+import math
+import tqdm
+import torch
+import argparse
+import numpy as np
+import pandas as pd
+from model import SALMONN
+
+import sys
+sys.path.append('../')
+
+import config
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from my_affectgpt.datasets.builders.image_text_pair_builder import get_name2cls # 加载所有dataset cls
+
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--device", type=str, default="cuda")
+    parser.add_argument("--low_resource", action='store_true', default=False)
+    parser.add_argument("--dataset", default='xxx', help="evaluate dataset") # dataset can set to "hybird"
+    parser.add_argument("--subtitle_flag", default='xxx', help="evaluate dataset")
+    args = parser.parse_args()
+
+
+    ###################################################
+    ## Load model
+    ###################################################
+    args.whisper_path = config.PATH_TO_MLLM['whisper-large-v2']
+    args.beats_path   = config.PATH_TO_MLLM['BEATs']
+    args.ckpt_path    = config.PATH_TO_MLLM['salmonn_7b']
+    args.vicuna_path  = config.PATH_TO_MLLM['vicuna-7b-v1.5']
+
+    model = SALMONN(
+        ckpt=args.ckpt_path,
+        whisper_path=args.whisper_path,
+        beats_path=args.beats_path,
+        vicuna_path=args.vicuna_path,
+        low_resource=args.low_resource
+    )
+    model.to(args.device)
+    model.eval()
+
+
+    ##########################################################
+    ## Main Process
+    ##########################################################
+    process_datasets = args.dataset.split(',')
+    print ('process datasets: ', process_datasets)
+
+
+    for dataset in process_datasets:
+        print (f'======== Process for {dataset} ========')
+
+        # 1. read dataset info
+        dataset_cls = get_name2cls(dataset)
+        test_names = dataset_cls.read_test_names()
+        name2subtitle = dataset_cls.name2subtitle
+        video_root = config.PATH_TO_RAW_VIDEO[dataset]
+        audio_root = config.PATH_TO_RAW_AUDIO[dataset]
+        face_root  = config.PATH_TO_RAW_FACE[dataset]
+
+        # 2. main process
+        name2reason = {}
+        for ii, name in enumerate(test_names):
+            subtitle = name2subtitle[name]
+            print ('=======================================================')
+            print (f'process on {ii}|{len(test_names)}: {name} | {subtitle}')
+
+            # get path
+            sample = {'name': name}
+            video_path, image_path, audio_path, face_npy = None, None, None, None
+            if hasattr(dataset_cls, '_get_video_path'): video_path = dataset_cls._get_video_path(sample)
+            if hasattr(dataset_cls, '_get_audio_path'): audio_path = dataset_cls._get_audio_path(sample)
+            if hasattr(dataset_cls, '_get_face_path'):  face_npy   = dataset_cls._get_face_path(sample)
+            if hasattr(dataset_cls, '_get_image_path'): image_path = dataset_cls._get_image_path(sample)
+
+            # inference
+            try:
+                with torch.amp.autocast('cuda', dtype=torch.float16):
+                    if args.subtitle_flag == 'subtitle':
+                        response = model.generate(audio_path, max_length=300,
+                                prompt=f"Subtitle content of the video: {subtitle} Please predict the emotional state of the individual in the audio. ", 
+                                device=args.device)[0]
+                    elif args.subtitle_flag == 'nosubtitle':
+                        response = model.generate(audio_path, max_length=300,
+                                prompt=f"Please predict the emotional state of the individual in the audio. ", 
+                                device=args.device)[0]
+                    response = response.replace('\n', ' ').replace('\t', ' ').strip()
+            except:
+                response = ""
+            
+            name2reason[name] = response
+            print (response)
+
+            # if ii == 0: break # for debug
+
+        save_root = f'../output/results-{dataset.lower()}/SALMONN'
+        if not os.path.exists(save_root): os.makedirs(save_root)
+        save_path = f'{save_root}/results-{args.subtitle_flag}.npz'
+        np.savez_compressed(save_path, name2reason=name2reason)
