@@ -31,90 +31,12 @@ from toolkit.utils.read_files import *
 # #############################################################
 # ## With 1200 samples
 # #############################################################
-# 要让模型同时支持audio, video, text三部分输入信息才行
-class MER2026OV_Dataset(BaseDataset):
-    def __init__(self, vis_processor=None, txt_processor=None, img_processor=None,
-                       dataset_cfg=None, model_cfg=None):
-        
-        self.dataset = 'MER2026OV'
-        if dataset_cfg is not None:
-            self.label_type = dataset_cfg.label_type
-            self.face_or_frame = dataset_cfg.face_or_frame
-            print (f'Read data type: ######{self.label_type}######')
-            print (f'Read data type: ######{self.face_or_frame}######')
-            self.needed_data = self.get_needed_data(self.face_or_frame)
-            print (self.needed_data) # ['audio', 'frame', 'face']
-        
-        ################# 直接手动指定所有信息的存储路径 #################
-        name2subtitle = {}
-        subtitle_csv = config.PATH_TO_TRANSCRIPTIONS[self.dataset]
-        df = pd.read_csv(subtitle_csv)
-        for _, row in df.iterrows():
-            name = row['name']
-            subtitle = row['english']
-            if pd.isna(subtitle): subtitle=""
-            name2subtitle[name] = subtitle
-        self.name2subtitle = name2subtitle
-        
-        name2openset = {}
-        openset_csv = config.PATH_TO_LABEL[self.dataset]
-        df = pd.read_csv(openset_csv)
-        for _, row in df.iterrows():
-            name = row['name']
-            openset = row['openset']
-            openset = string_to_list(openset)
-            name2openset[name] = ", ".join(openset)
-        self.name2openset = name2openset
-        
-        vis_root = config.PATH_TO_RAW_VIDEO[self.dataset]
-        wav_root = config.PATH_TO_RAW_AUDIO[self.dataset]
-        face_root= config.PATH_TO_RAW_FACE[self.dataset]
-        ##################################################################
-
-        # use base model initialize approach
-        super().__init__(vis_processor=vis_processor, 
-                         txt_processor=txt_processor,
-                         img_processor=img_processor,
-                         vis_root=vis_root,
-                         face_root=face_root,
-                         wav_root=wav_root,
-                         model_cfg=model_cfg,
-                         dataset_cfg=dataset_cfg)
-        
-    def _get_video_path(self, sample):
-        full_video_fp = os.path.join(self.vis_root, sample['name'] + '.mp4')
-        return full_video_fp
-    
-    def _get_audio_path(self, sample):
-        full_audio_fp = os.path.join(self.wav_root, sample['name'] + '.wav')
-        return full_audio_fp
-
-    def _get_face_path(self, sample):
-        full_face_fp = os.path.join(self.face_root, sample['name'], sample['name'] + '.npy')
-        return full_face_fp
-    
-    # for inference
-    def read_test_names(self):
-        label_csv = config.PATH_TO_LABEL[self.dataset]
-        test_names  = func_read_key_from_csv(label_csv, 'name')
-        assert len(test_names) == 1000
-        return test_names
-
-    def get_test_name2gt(self):
-        return self.name2openset
-
-
-
-
-#############################################################
-## For 20000 candidates
-#############################################################
 # # 要让模型同时支持audio, video, text三部分输入信息才行
 # class MER2026OV_Dataset(BaseDataset):
 #     def __init__(self, vis_processor=None, txt_processor=None, img_processor=None,
 #                        dataset_cfg=None, model_cfg=None):
         
-#         self.dataset = 'MER2025OV'
+#         self.dataset = 'MER2026OV'
 #         if dataset_cfg is not None:
 #             self.label_type = dataset_cfg.label_type
 #             self.face_or_frame = dataset_cfg.face_or_frame
@@ -133,6 +55,16 @@ class MER2026OV_Dataset(BaseDataset):
 #             if pd.isna(subtitle): subtitle=""
 #             name2subtitle[name] = subtitle
 #         self.name2subtitle = name2subtitle
+        
+#         name2openset = {}
+#         openset_csv = config.PATH_TO_LABEL[self.dataset]
+#         df = pd.read_csv(openset_csv)
+#         for _, row in df.iterrows():
+#             name = row['name']
+#             openset = row['openset']
+#             openset = string_to_list(openset)
+#             name2openset[name] = ", ".join(openset)
+#         self.name2openset = name2openset
         
 #         vis_root = config.PATH_TO_RAW_VIDEO[self.dataset]
 #         wav_root = config.PATH_TO_RAW_AUDIO[self.dataset]
@@ -163,7 +95,74 @@ class MER2026OV_Dataset(BaseDataset):
     
 #     # for inference
 #     def read_test_names(self):
-#         label_csv = os.path.join(config.DATA_DIR[self.dataset], 'track_all_candidates.csv')      
+#         label_csv = config.PATH_TO_LABEL[self.dataset]
 #         test_names  = func_read_key_from_csv(label_csv, 'name')
-#         assert len(test_names) == 20000
+#         assert len(test_names) == 1000
 #         return test_names
+
+#     def get_test_name2gt(self):
+#         return self.name2openset
+
+
+
+
+#############################################################
+## For 20000 candidates
+#############################################################
+class MER2026OV_Dataset(BaseDataset):
+    def __init__(self, vis_processor=None, txt_processor=None, img_processor=None,
+                       dataset_cfg=None, model_cfg=None):
+        
+        self.dataset = 'MER2026OV'
+        if dataset_cfg is not None:
+            self.label_type = dataset_cfg.label_type
+            self.face_or_frame = dataset_cfg.face_or_frame
+            print (f'Read data type: ######{self.label_type}######')
+            print (f'Read data type: ######{self.face_or_frame}######')
+            self.needed_data = self.get_needed_data(self.face_or_frame)
+            print (self.needed_data) # ['audio', 'frame', 'face']
+        
+        ################# 直接手动指定所有信息的存储路径 #################
+        name2subtitle = {}
+        subtitle_csv = config.PATH_TO_TRANSCRIPTIONS[self.dataset]
+        df = pd.read_csv(subtitle_csv)
+        for _, row in df.iterrows():
+            name = row['name']
+            subtitle = row['english']
+            if pd.isna(subtitle): subtitle=""
+            name2subtitle[name] = subtitle
+        self.name2subtitle = name2subtitle
+        
+        vis_root = config.PATH_TO_RAW_VIDEO[self.dataset]
+        wav_root = config.PATH_TO_RAW_AUDIO[self.dataset]
+        face_root= config.PATH_TO_RAW_FACE[self.dataset]
+        ##################################################################
+
+        # use base model initialize approach
+        super().__init__(vis_processor=vis_processor, 
+                         txt_processor=txt_processor,
+                         img_processor=img_processor,
+                         vis_root=vis_root,
+                         face_root=face_root,
+                         wav_root=wav_root,
+                         model_cfg=model_cfg,
+                         dataset_cfg=dataset_cfg)
+        
+    def _get_video_path(self, sample):
+        full_video_fp = os.path.join(self.vis_root, sample['name'] + '.mp4')
+        return full_video_fp
+    
+    def _get_audio_path(self, sample):
+        full_audio_fp = os.path.join(self.wav_root, sample['name'] + '.wav')
+        return full_audio_fp
+
+    def _get_face_path(self, sample):
+        full_face_fp = os.path.join(self.face_root, sample['name'], sample['name'] + '.npy')
+        return full_face_fp
+    
+    # for inference
+    def read_test_names(self):
+        label_csv = os.path.join(config.DATA_DIR['MER2026'], 'track1_track2_candidate.csv')      
+        test_names  = func_read_key_from_csv(label_csv, 'name')
+        assert len(test_names) == 20000
+        return test_names
