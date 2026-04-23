@@ -110,6 +110,9 @@ Fill out an EULA on Hugging Face to download: https://huggingface.co/datasets/ME
 
 Code: `./MER2026` &nbsp;|&nbsp; Website: https://zeroqiaoba.github.io/MER-Challenge/
 
+> [**MER 2026: From Discriminative Emotion Recognition to Generative Emotion Understanding**](https://arxiv.org/abs/2604.19417) <br>
+> Zheng Lian, Xiaojiang Peng, Kele Xu, Ziyu Jia, Xinyi Che, Zebang Cheng, Fei Ma, Laizhong Cui, Yazhou Zhang, Xin Liu, Liang Yang, Jia Li, Fan Zhang, Erik Cambria, Guoying Zhao, Bjorn W. Schuller, Jianhua Tao
+
 
 ---
 
